@@ -371,15 +371,15 @@
                             <p class="lead fw-light mb-4">My name is Yusuf Amin Abdillah and I help brands grow.</p>
                             <p class="text-muted">Know me more by click logo below!</p>
                             <div class="d-flex justify-content-center fs-2 gap-4">
-                                <a class="text-gradient" href="https://wa.me/6285311000921"><i
+                                <a class="text-gradient" href="https://wa.me/6285311000921" target="_blank"><i
                                         class="bi bi-whatsapp"></i></a>
-                                <a class="text-gradient" href="https://github.com/amincup"><i
+                                <a class="text-gradient" href="https://github.com/amincup" target="_blank"><i
                                         class="bi bi-github"></i></a>
-                                <a class="text-gradient" href="https://www.instagram.com/yusuffaa_/"><i
-                                        class="bi bi-instagram"></i></a>
+                                <a class="text-gradient" href="https://www.instagram.com/yusuffaa_/"
+                                    target="_blank"><i class="bi bi-instagram"></i></a>
                                 <a class="text-gradient"
-                                    href="https://www.linkedin.com/in/yusuf-amin-abdillah-66b662174/"><i
-                                        class="bi bi-linkedin"></i></a>
+                                    href="https://www.linkedin.com/in/yusuf-amin-abdillah-66b662174/"
+                                    target="_blank"><i class="bi bi-linkedin"></i></a>
                                 <a class="text-gradient" href="mailto:yusufaa464@gmail.com"><i
                                         class="bi bi-envelope"></i></a>
                             </div>
