@@ -28,6 +28,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'main']);
 Route::get('/resume', [HomeController::class, 'resume']);
+Route::get('/detail/{Porto:title}', [HomeController::class, 'detail']);
 
 //auth
 Route::get('/login', [AuthController::class, 'login'])->name('login');

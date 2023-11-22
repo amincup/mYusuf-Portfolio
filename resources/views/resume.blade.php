@@ -325,7 +325,8 @@
                                     <a href="/image/{{ $Porto->image }}" data-gallery="portfolioGallery"
                                         class="portfolio-lightbox" title="{{ $Porto->title }}"><i
                                             class="bx bx-plus"></i></a>
-                                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                                    <a href="/detail/{{ $Porto->title }}" title="More Details"><i
+                                            class="bx bx-link"></i></a>
                                 </div>
                             </div>
                         @endforeach

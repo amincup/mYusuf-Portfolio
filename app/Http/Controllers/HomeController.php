@@ -20,4 +20,9 @@ class HomeController extends Controller
             'Porto'
         ));
     }
+
+    public function detail(Porto $Porto)
+    {
+        return view('detailsPorto', compact('Porto'));
+    }
 }
