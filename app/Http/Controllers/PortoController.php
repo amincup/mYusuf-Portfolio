@@ -30,7 +30,10 @@ class PortoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required', 'description' => 'required', 'image' => 'required',
+            'title' => 'required',
+            'description' => 'required',
+            'type' => 'required',
+            'image' => 'required',
         ]);
 
         $input = $request->all();
@@ -69,7 +72,10 @@ class PortoController extends Controller
     public function update(Request $request, Porto $Porto)
     {
         $request->validate([
-            'title' => 'required', 'description' => 'required', 'image' => 'image',
+            'title' => 'required',
+            'description' => 'required',
+            'type' => 'required',
+            'image' => 'image',
         ]);
 
         $input = $request->all();

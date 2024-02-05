@@ -28,6 +28,7 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Porto Title</th>
+                <th scope="col">Type</th>
                 <th scope="col">Description</th>
                 <th scope="col">Picture</th>
                 {{-- <th scope="col">Type</th> --}}
@@ -40,6 +41,7 @@
                 <tr>
                     <td>{{ $i++ }}</td>
                     <td>{{ $porto->title }}</td>
+                    <td>{{ $porto->type }}</td>
                     <td>{{ $porto->description }}</td>
                     {{-- <td>{{ $porto->type }}</td> --}}
                     <td>

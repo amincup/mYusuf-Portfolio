@@ -50,11 +50,11 @@
 
                 <div class="col-md-4">
                     <div class="form-floating mb-3">
-                        <select class="form-select" id="floatingSelect" aria-label="State">
-                            <option selected>...</option>
-                            <option value="1">App</option>
-                            <option value="2">Web</option>
-                            <option value="3">IoT</option>
+                        <select class="form-select" name="type" id="floatingSelect" aria-label="State">
+                            <option value="">...</option>
+                            <option value="Application">Application</option>
+                            <option value="Website">Website</option>
+                            <option value="IoT">IoT</option>
                         </select>
                         <label for="floatingSelect">Type</label>
                     </div>

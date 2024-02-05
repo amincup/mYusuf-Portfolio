@@ -45,7 +45,8 @@
                                     </div>
                                     <div class="carousel-inner">
                                         <div class="carousel-item active">
-                                            <img src="/assets/img/slides-1.jpg" class="d-block w-100" alt="...">
+                                            <img src="/image/{{ $Porto->image }}" class="d-block w-100"
+                                                alt="{{ $Porto->title }}">
                                         </div>
                                         <div class="carousel-item">
                                             <img src="/assets/img/slides-2.jpg" class="d-block w-100" alt="...">
@@ -76,13 +77,25 @@
 
                         <div class="col-md-8">
                             <div class="portfolio-info">
-                                <h3>Project information</h3>
-                                <ul>
-                                    <li><strong>Category</strong>: Web design</li>
-                                    <li><strong>Client</strong>: A Company</li>
-                                    <li><strong>Project date</strong>: 01 March, 2023</li>
-                                    <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
-                                </ul>
+                                <h3>Project Information</h3>
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <ul>
+                                            <li><strong>Category</strong></li>
+                                            <li><strong>Client</strong></li>
+                                            <li><strong>Project date</strong></li>
+                                            <li><strong>Project URL</strong></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <ul>
+                                            <li>: {{ $Porto->type }}</li>
+                                            <li>: A Company</li>
+                                            <li>: 01 March, 2023</li>
+                                            <li>: <a href="#">www.example.com</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

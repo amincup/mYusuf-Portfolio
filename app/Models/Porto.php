@@ -10,6 +10,6 @@ class Porto extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title', 'description', /*'type',*/ 'image'
+        'title', 'description', 'type', 'image'
     ];
 }

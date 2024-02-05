@@ -38,35 +38,45 @@
                             magna aliqua.
                         </p>
                         <div class="row">
-                            <div class="col-lg-6">
+                            <div class="col-lg-2">
                                 <ul>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Birthday</strong> <span>: 1 May
-                                            2003</span></li>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Birthday</strong></li>
                                     <li><i class="bi bi-chevron-right"></i> <strong>Website</strong>
-                                        <span>
+                                    </li>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Phone</strong></li>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>City</strong></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4">
+                                <ul>
+                                    <li><span>: 1 May
+                                            2003</span></li>
+                                    <li>
+                                        <span>:
                                             <a
                                                 href="https://yusufaa.notion.site/Yusuf-Amin-Abdillah-IoT-Developer-1e40f903d51d408aa3ce9ca1d0e846de?pvs=4">
                                                 IoT Dev Page
                                             </a>
                                         </span>
                                     </li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Phone</strong> <span>: +62 853 1100
+                                    <li><span>: +62 853 1100
                                             0921</span></li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>City</strong> <span>: Jakarta,
-                                            Indonesia</span></li>
+                                    <li><span>: Jakarta, Indonesia</span></li>
                                 </ul>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-3">
                                 <ul>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Age</strong> <span>21</span></li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Degree</strong>
-                                        <span>: Bachelor</span>
-                                    </li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Email</strong>
-                                        <span>: yusufaa464@gmail.com</span>
-                                    </li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Available Freelance</strong>
-                                    </li>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Age</strong></li>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Degree</strong></li>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Email</strong></li>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Available Freelance</strong></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-3">
+                                <ul>
+                                    <li><span>: 21</span></li>
+                                    <li> <span>: Bachelor</span></li>
+                                    <li><span>: yusufaa464@gmail.com</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -309,18 +319,18 @@
                     <div class="col-lg-12 d-flex justify-content-center">
                         <ul id="portfolio-flters">
                             <li data-filter="*" class="filter-active">All</li>
-                            <li data-filter=".filter-app">App</li>
-                            <li data-filter=".filter-card">Card</li>
-                            <li data-filter=".filter-web">Web</li>
+                            <li data-filter=".filter-Application">App</li>
+                            <li data-filter=".filter-IoT">IoT</li>
+                            <li data-filter=".filter-Website">Website</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-app {{-- ini misal contoh aja kalo mau ditambahin type tinggal di apus tulisan app dikiri trus diganti ama yg kanan ini {{ Auth::user()->type }} --}}">
-                        @foreach ($Porto as $Porto)
+                    @foreach ($Porto as $Porto)
+                        <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $Porto->type }}">
                             <div class="portfolio-wrap">
-                                <img src="/image/{{ $Porto->image }}" class="img-fluid" alt="">
+                                <img src="/image/{{ $Porto->image }}" class="img-fluid" alt="{{ $Porto->title }}">
                                 <div class="portfolio-links">
                                     <a href="/image/{{ $Porto->image }}" data-gallery="portfolioGallery"
                                         class="portfolio-lightbox" title="{{ $Porto->title }}"><i
@@ -329,15 +339,14 @@
                                             class="bx bx-link"></i></a>
                                 </div>
                             </div>
-                        @endforeach
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                        </div>
+                    @endforeach
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-Website">
                         <div class="portfolio-wrap">
                             <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
                             <div class="portfolio-links">
                                 <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
+                                    class="portfolio-lightbox" title="Website 3"><i class="bx bx-plus"></i></a>
                                 <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
                             </div>
                         </div>
@@ -354,23 +363,23 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-IoT">
                         <div class="portfolio-wrap">
                             <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
                             <div class="portfolio-links">
                                 <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
+                                    class="portfolio-lightbox" title="IoT 2"><i class="bx bx-plus"></i></a>
                                 <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-Website">
                         <div class="portfolio-wrap">
                             <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
                             <div class="portfolio-links">
                                 <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
+                                    class="portfolio-lightbox" title="Website 2"><i class="bx bx-plus"></i></a>
                                 <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
                             </div>
                         </div>
@@ -387,42 +396,43 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-IoT">
                         <div class="portfolio-wrap">
                             <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
                             <div class="portfolio-links">
                                 <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
+                                    class="portfolio-lightbox" title="IoT 1"><i class="bx bx-plus"></i></a>
                                 <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-IoT">
                         <div class="portfolio-wrap">
                             <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
                             <div class="portfolio-links">
                                 <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
+                                    class="portfolio-lightbox" title="IoT 3"><i class="bx bx-plus"></i></a>
                                 <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-Website">
                         <div class="portfolio-wrap">
                             <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
                             <div class="portfolio-links">
                                 <a href="assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
+                                    class="portfolio-lightbox" title="Website 3"><i class="bx bx-plus"></i></a>
                                 <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
                             </div>
                         </div>
                     </div>
-
                 </div>
 
+
             </div>
+
         </section>
         <!-- End Portfolio Section -->
 
