@@ -13,7 +13,7 @@ class PortoController extends Controller
     public function index()
     {
         $portos = Porto::all();
-        return view('resume.portfolio.porto', compact('portos'));
+        return view('admin.portfolio.porto', compact('portos'));
     }
 
     /**
@@ -21,7 +21,7 @@ class PortoController extends Controller
      */
     public function create()
     {
-        return view('resume.portfolio.create');
+        return view('admin.portfolio.create');
     }
 
     /**
@@ -63,7 +63,7 @@ class PortoController extends Controller
      */
     public function edit(Porto $Porto)
     {
-        return view('resume.portfolio.edit', compact('Porto')); //P nya gede ni jgn lupa
+        return view('admin.portfolio.edit', compact('Porto')); //P nya gede ni jgn lupa
     }
 
     /**

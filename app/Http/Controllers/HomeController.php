@@ -9,14 +9,14 @@ class HomeController extends Controller
 {
     public function main()
     {
-        return view('main');
+        return view('pages/main');
     }
 
     public function resume()
     {
         $Porto = Porto::all();
 
-        return view('resume', compact(
+        return view('pages/resume', compact(
             'Porto'
         ));
     }
