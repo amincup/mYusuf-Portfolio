@@ -21,9 +21,12 @@
 
                 <div class="section-title">
                     <h2>About</h2>
-                    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit
-                        sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias
-                        ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                    <p>Experienced IoT Engineer with 2 years of experience and a Cisco certification in Internet of Things.
+                        Skilled in web design using Figma,
+                        complemented by practical understanding gained from internship experience. Passionate about
+                        technological advancements and dedicated to
+                        continuous learning and evolution. Ready to contribute to projects requiring a fusion of technical
+                        expertise and design understanding.</p>
                 </div>
 
                 <div class="row">
@@ -31,24 +34,21 @@
                         <img src="assets/profiles.png" class="img-fluid" alt="">
                     </div>
                     <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-                        <h3>UI/UX Designer &amp; Web Developer.</h3>
+                        <h3>IoT Engineer, UI/UX Designer &amp; Web Developer.</h3>
                         <p class="fst-italic">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                             labore et dolore
                             magna aliqua.
                         </p>
+
                         <div class="row">
-                            <div class="col-lg-2">
+                            <div class="col">
                                 <ul>
                                     <li><i class="bi bi-chevron-right"></i> <strong>Birthday</strong></li>
                                     <li><i class="bi bi-chevron-right"></i> <strong>Website</strong>
                                     </li>
                                     <li><i class="bi bi-chevron-right"></i> <strong>Phone</strong></li>
                                     <li><i class="bi bi-chevron-right"></i> <strong>City</strong></li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-4">
-                                <ul>
                                     <li><span>: 1 May
                                             2003</span></li>
                                     <li>
@@ -64,22 +64,19 @@
                                     <li><span>: Jakarta, Indonesia</span></li>
                                 </ul>
                             </div>
-                            <div class="col-lg-3">
+                            <div class="col">
                                 <ul>
                                     <li><i class="bi bi-chevron-right"></i> <strong>Age</strong></li>
                                     <li><i class="bi bi-chevron-right"></i> <strong>Degree</strong></li>
                                     <li><i class="bi bi-chevron-right"></i> <strong>Email</strong></li>
                                     <li><i class="bi bi-chevron-right"></i> <strong>Available Freelance</strong></li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-3">
-                                <ul>
                                     <li><span>: 21</span></li>
                                     <li> <span>: Bachelor</span></li>
                                     <li><span>: yusufaa464@gmail.com</span></li>
                                 </ul>
                             </div>
                         </div>
+                        <br>
                         <p>
                             Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt
                             adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis.

@@ -17,7 +17,7 @@
     <a href="/porto" class="btn btn-primary mb-3">Back</a>
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Add Portfolio</h5>
+            <h5 class="card-title">Edit Portfolio</h5>
 
             <!-- Floating Labels Form -->
             <form method="post" action="{{ route('porto.update', $Porto->id) }}" enctype="multipart/form-data"
