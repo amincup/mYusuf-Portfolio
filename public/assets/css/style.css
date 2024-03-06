@@ -1173,6 +1173,113 @@ h6 {
 }
 
 /*--------------------------------------------------------------
+  # images
+  --------------------------------------------------------------*/
+.images .container {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 300px;
+}
+
+.images .images-item {
+  margin-bottom: 30px;
+}
+
+.images #images-flters {
+  padding: 0;
+  margin: 0 auto 35px auto;
+  list-style: none;
+  text-align: center;
+  background: #fff;
+  border-radius: 50px;
+  padding: 2px 15px;
+}
+
+.images #images-flters li {
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 15px 8px 15px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #272829;
+  margin-bottom: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.images #images-flters li:hover,
+.images #images-flters li.filter-active {
+  color: #4460ef;
+}
+
+.images #images-flters li:last-child {
+  margin-right: 0;
+}
+
+.images .images-wrap {
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.images .images-wrap::before {
+  content: "";
+  background: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transition: all ease-in-out 0.3s;
+  z-index: 2;
+  opacity: 0;
+}
+
+.images .images-wrap .images-links {
+  opacity: 1;
+  left: 0;
+  right: 0;
+  bottom: -60px;
+  z-index: 3;
+  position: absolute;
+  transition: all ease-in-out 0.3s;
+  display: flex;
+  justify-content: center;
+}
+
+.images .images-wrap .images-links a {
+  color: #fff;
+  font-size: 28px;
+  text-align: center;
+  background: #212431;
+  transition: 0.3s;
+  width: 50%;
+}
+
+.images .images-wrap .images-links a:hover {
+  background: #4460ef;
+}
+
+.images .images-wrap .images-links a+a {
+  border-left: 1px solid #212431;
+}
+
+.images .images-wrap:hover::before {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 1;
+}
+
+.images .images-wrap:hover .images-links {
+  opacity: 1;
+  bottom: 0;
+}
+
+/*--------------------------------------------------------------
 # Error 404
 --------------------------------------------------------------*/
 .error-404 {

@@ -9,7 +9,14 @@ class Porto extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'title', 'description', 'type', 'image'
-    ];
+    protected $guarded = [];
+
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
+
+    // protected $fillable = [
+    //     'title', 'description', 'type', 'image'
+    // ];
 }

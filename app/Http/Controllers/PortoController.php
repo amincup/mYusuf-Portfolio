@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
 use App\Models\Porto;
 use Illuminate\Http\Request;
 
@@ -33,21 +34,61 @@ class PortoController extends Controller
             'title' => 'required',
             'description' => 'required',
             'type' => 'required',
-            'image' => 'required',
+            'thumb' => 'required',
         ]);
 
         $input = $request->all();
 
-        if ($image = $request->file('image')) {
-            $destinationPath = 'image/';
+        if ($image = $request->file('thumb')) {
+            $destinationPath = 'thumb/';
             $imageName = date('Ymd_His') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $imageName);
-            $input['image'] = $imageName;
+            $input['thumb'] = $imageName;
         }
 
         Porto::create($input);
 
         return redirect('/porto')->with('message', 'Data successfully added');
+    }
+
+    public function storeImg(Request $request)
+    {
+        $data = $request->validate([
+            'image' => 'required',
+        ]);
+
+        $input = Porto::create($data);
+
+        if ($request->has('image')) {
+            foreach ($request->file('image') as $image) {
+                $imageName = $data['title'] . "-" . date('Ymd_His') . "-" . rand(1, 1000) . "." . $image->getClientOriginalExtension();
+                $destinationPath = 'thumb/';
+                $image->move($destinationPath, $imageName);
+                Image::create([
+                    'porto_id' => $input->id,
+                    'image' => $imageName
+                ]);
+            }
+        }
+
+        return redirect('/porto')->with('message', 'Data successfully added');
+    }
+
+    public function images(Request $request, $id) //hanya buat nampilin bkn crud
+    {
+        $Porto = Porto::find($id);
+        if (!$Porto) abort(404);
+        $images = $Porto->images;
+        return view('admin.portfolio.images', compact('Porto', 'images')); //jd yg dlm compact ini adalah variabel yg akan di bawa ke halaman images.blade
+    }
+
+    public function removeImg($id)
+    {
+        $image = Image::find($id);
+        if (!$image) abort(404);
+        unlink(public_path('image/' . $image->image));
+        $image->delete();
+        return back()->with('message', 'Image Removed');
     }
 
     /**
@@ -75,18 +116,17 @@ class PortoController extends Controller
             'title' => 'required',
             'description' => 'required',
             'type' => 'required',
-            'image' => 'image',
         ]);
 
         $input = $request->all();
 
-        if ($image = $request->file('image')) {
-            $destinationPath = 'image/';
-            $imageName = date('Ymd_His') . "." . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $imageName);
-            $input['image'] = $imageName;
+        if ($thumb = $request->file('thumb')) {
+            $destinationPath = 'thumb/';
+            $thumbName = date('Ymd_His') . "." . $thumb->getClientOriginalExtension();
+            $thumb->move($destinationPath, $thumbName);
+            $input['thumb'] = $thumbName;
         } else {
-            unset($input['image']);
+            unset($input['thumb']);
         }
 
         $Porto->update($input);
@@ -94,12 +134,45 @@ class PortoController extends Controller
         return redirect('/porto')->with('message', 'Data successfully edited')->with('titlePage', 'Add Portfolio');
     }
 
+    public function updateImg(Request $request, $id)
+    {
+        $imageEdit = Porto::find($id);
+        if (!$imageEdit) abort(404);
+        if ($request->has('image')) {
+            foreach ($request->file('image') as $image) {
+                $imageName = $imageEdit['title'] . "-" . date('Ymd_His') . "-" . rand(1, 1000) . "." . $image->getClientOriginalExtension();
+                $destinationPath = 'image/';
+                $image->move($destinationPath, $imageName);
+                Image::create([
+                    'porto_id' => $imageEdit->id,
+                    'image' => $imageName
+                ]);
+            }
+        }
+
+        return redirect()->route('porto.images', ['id' => $id])->with('message', 'Data successfully edited');
+    }
+
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Porto $Porto)
+    public function destroy($id)
     {
-        $Porto->delete();
-        return redirect('/porto')->with('message', 'Data deleted');
+        $porto = Porto::find($id);
+        if (!$porto) {
+            abort(404);
+        }
+
+        //apus associated images
+        foreach ($porto->images as $image) {
+            unlink(public_path('image/' . $image->image));
+            $image->delete();
+        }
+
+        //apus thumb image
+        unlink(public_path('thumb/' . $porto->thumb));
+        $porto->delete();
+
+        return redirect('/porto')->with('message', 'Data and associated images deleted');
     }
 }

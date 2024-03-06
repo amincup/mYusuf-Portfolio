@@ -51,7 +51,7 @@
                 <div class="col-md-4">
                     <div class="form-floating mb-3">
                         <select class="form-select" name="type" id="floatingSelect" aria-label="State">
-                            <option value="">...</option>
+                            <option value="{{ $Porto->type }}">{{ $Porto->type }}</option>
                             <option value="Application">Application</option>
                             <option value="Website">Website</option>
                             <option value="IoT">IoT</option>
@@ -67,12 +67,12 @@
                     <div class="row mb-3">
                         <label for="inputNumber" class="col-sm-2 col-form-label">Upload Picture</label>
                         <div class="col-sm-10">
-                            <input type="file" name="image" class="form-control" id="formFile">
+                            <input type="file" name="thumb" class="form-control" id="formFile">
                             <div class="col-sm-4">
-                                <img src="/image/{{ $Porto->image }}" alt="" class="img-fluid">
+                                <img src="/thumb/{{ $Porto->thumb }}" alt="" class="img-fluid">
                             </div>
                         </div>
-                        @error('image')
+                        @error('thumb')
                             <small style="color:red">{{ $message }}</small>
                         @enderror
                     </div>

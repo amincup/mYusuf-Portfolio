@@ -18,24 +18,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('main');
-// });
-
-// Route::get('/resume', function () {
-//     return view('resume');
-// });
-
+//main pages
 Route::get('/', [HomeController::class, 'main']);
-Route::get('/resume', [HomeController::class, 'resume']);
-Route::get('/detail/{Porto:title}', [HomeController::class, 'detail']);
+Route::get('/resume', [HomeController::class, 'resume'])->name('pages.resume');
+Route::get('/detail/{id}', [HomeController::class, 'detail'])->name('pages.detailsPorto');
+
+//admin pages
+Route::get('/porto/images/{id}', [PortoController::class, 'images'])->name('porto.images');
+Route::get('/porto/remove-img/{id}', [PortoController::class, 'removeImg']);
+Route::post('/porto/add-img/{id}', [PortoController::class, 'updateImg']);
 
 //auth
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'authenticated']);
 Route::get('/logout', [AuthController::class, 'logout']);
 
-//dashboard
+//protected from not login
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
-
 Route::resource('/porto', PortoController::class)->middleware('auth');

@@ -327,12 +327,12 @@
                     @foreach ($Porto as $Porto)
                         <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $Porto->type }}">
                             <div class="portfolio-wrap">
-                                <img src="/image/{{ $Porto->image }}" class="img-fluid" alt="{{ $Porto->title }}">
+                                <img src="/thumb/{{ $Porto->thumb }}" class="img-fluid" alt="{{ $Porto->title }}">
                                 <div class="portfolio-links">
-                                    <a href="/image/{{ $Porto->image }}" data-gallery="portfolioGallery"
+                                    <a href="/thumb/{{ $Porto->thumb }}" data-gallery="portfolioGallery"
                                         class="portfolio-lightbox" title="{{ $Porto->title }}"><i
                                             class="bx bx-plus"></i></a>
-                                    <a href="/detail/{{ $Porto->title }}" title="More Details"><i
+                                    <a href="/detail/{{ $Porto->id }}" title="More Details"><i
                                             class="bx bx-link"></i></a>
                                 </div>
                             </div>

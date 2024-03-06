@@ -30,22 +30,22 @@
                 <th scope="col">Porto Title</th>
                 <th scope="col">Type</th>
                 <th scope="col">Description</th>
-                <th scope="col">Picture</th>
-                {{-- <th scope="col">Type</th> --}}
+                <th scope="col">Thumb</th>
                 <th scope="col">Action</th>
+                <th scope="col">Picture</th>
             </tr>
         </thead>
         <tbody>
             <?php $i = 1; ?>
-            @foreach ($portos as $porto)
+            @forelse ($portos as $porto)
                 <tr>
                     <td>{{ $i++ }}</td>
                     <td>{{ $porto->title }}</td>
                     <td>{{ $porto->type }}</td>
                     <td>{{ $porto->description }}</td>
-                    {{-- <td>{{ $porto->type }}</td> --}}
+                    {{-- <td>{{ $porto->images->count() }}</td> --}}
                     <td>
-                        <img src="/image/{{ $porto->image }}" alt="" class="img-fluid" width="100">
+                        <img src="/thumb/{{ $porto->thumb }}" alt="" class="img-fluid" width="100">
                     </td>
                     <td>
                         <a href="{{ route('porto.edit', $porto->id) }}" class="btn btn-warning"><i
@@ -57,8 +57,17 @@
                             <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i></button>
                         </form>
                     </td>
+                    <td>
+                        <a href="{{ route('porto.images', $porto->id) }}" class="btn btn-outline-dark">Add / Edit Slider
+                            Image</a>
+                        {{-- <img src="/image/{{ $porto->images }}" alt="" class="img-fluid" width="100"> --}}
+                    </td>
                 </tr>
-            @endforeach
+            @empty
+                <tr>
+                    <td colspan="6" class="text-center">Nothing to show</td>
+                </tr>
+            @endforelse
         </tbody>
     </table>
     <!-- End Table with hoverable rows -->
